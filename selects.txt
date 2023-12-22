@@ -1,0 +1,19 @@
+-- Exemplos de Selects
+
+-- Selecionar carros disponíveis
+SELECT * FROM Carro WHERE Disponivel = TRUE;
+
+-- Selecionar carros locados por cliente
+SELECT Carro.*, Locacao.DataLocacao, Locacao.DataDevolucao
+FROM Carro
+JOIN Locacao ON Carro.CarroID = Locacao.CarroID
+WHERE Locacao.ClienteID = 1;
+
+-- Selecionar histórico de locações de um carro
+SELECT Cliente.Nome, Locacao.DataLocacao, Locacao.DataDevolucao
+FROM Locacao
+JOIN Cliente ON Locacao.ClienteID = Cliente.ClienteID
+WHERE Locacao.CarroID = 1;
+
+-- Atualizar quilometragem de um carro
+UPDATE Carro SET QuilometragemAtual = 350.0 WHERE CarroID = 1;

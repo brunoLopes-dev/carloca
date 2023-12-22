@@ -1,0 +1,36 @@
+-- Exemplos de Inserts
+
+-- Montadoras
+INSERT INTO Montadora (MontadoraID, Nome) VALUES
+(1, 'Volkswagen'),
+(2, 'Ford'),
+(3, 'Chevrolet');
+
+-- Cores
+INSERT INTO Cor (CorID, Nome) VALUES
+(1, 'Branco'),
+(2, 'Preto'),
+(3, 'Prata');
+
+-- Categorias
+INSERT INTO Categoria (CategoriaID, Nome) VALUES
+(1, 'Hatch'),
+(2, 'Sedan Compacto'),
+(3, 'Sedan Médio'),
+(4, 'SUV');
+
+-- Carros
+INSERT INTO Carro (CarroID, Modelo, MontadoraID, CorID, CategoriaID) VALUES
+(1, 'Gol', 1, 1, 1),
+(2, 'Focus', 2, 2, 2),
+(3, 'Cruze', 3, 3, 3);
+
+-- Clientes
+INSERT INTO Cliente (ClienteID, Nome) VALUES
+(1, 'João Silva'),
+(2, 'Maria Souza');
+
+-- Locações
+INSERT INTO Locacao (LocacaoID, ClienteID, CarroID, DataLocacao, DataDevolucao, QuilometragemInicial, QuilometragemFinal, LocalLocacao, LocalDevolucao) VALUES
+(1, 1, 1, '2023-01-01', '2023-01-05', 100.0, 300.0, 'Filial A', 'Filial B'),
+(2, 2, 2, '2023-02-01', NULL, 50.0, NULL, 'Filial B', 'Filial A');
