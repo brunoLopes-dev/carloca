@@ -1,0 +1,59 @@
+Table Montadora {
+  MontadoraID INT [pk]
+  Nome VARCHAR(50) [not null]
+}
+
+Table Cor {
+  CorID INT [pk]
+  Nome VARCHAR(20) [not null]
+}
+
+Table Categoria {
+  CategoriaID INT [pk]
+  Nome VARCHAR(50) [not null]
+}
+
+Table Carro {
+  CarroID INT [pk]
+  Modelo VARCHAR(50) [not null]
+  MontadoraID INT [ref: > Montadora.MontadoraID]
+  CorID INT [ref: > Cor.CorID]
+  CategoriaID INT [ref: > Categoria.CategoriaID]
+  Disponivel BOOLEAN [default: true]
+  QuilometragemAtual DECIMAL(10, 2) [default: 0.0]
+}
+
+Table Cliente {
+  ClienteID INT [pk]
+  Nome VARCHAR(50) [not null]
+}
+
+Table Locacao {
+  LocacaoID INT [pk]
+  ClienteID INT [ref: > Cliente.ClienteID]
+  CarroID INT [ref: > Carro.CarroID]
+  DataLocacao DATE [not null]
+  DataDevolucao DATE
+  QuilometragemInicial DECIMAL(10, 2)
+  QuilometragemFinal DECIMAL(10, 2)
+  LocalLocacao VARCHAR(100) [not null]
+  LocalDevolucao VARCHAR(100) [not null]
+}
+
+Table HistoricoLocacao {
+  HistoricoID INT [pk]
+  LocacaoID INT [ref: > Locacao.LocacaoID]
+}
+
+Table Unidade {
+  UnidadeID INT [pk]
+  Nome VARCHAR(100) [not null]
+}
+
+Table LocalizacaoCarro {
+  LocalizacaoID INT [pk]
+  CarroID INT [ref: > Carro.CarroID]
+  UnidadeID INT [ref: > Unidade.UnidadeID]
+  DataLocacao DATE [not null]
+  DataDevolucao DATE
+}
